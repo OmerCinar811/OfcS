@@ -11,6 +11,6 @@ int 0x10
 
 jmp $ ; this makes it jump to the current address
 
-; Adds padding zeros and magin number for boot sector
+; Adds padding zeros and magic number for boot sector
 times 510-($-$$) db 0
 dw 0xaa55
