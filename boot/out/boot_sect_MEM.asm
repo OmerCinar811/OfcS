@@ -2,6 +2,8 @@
 ; A simple boot sector program that demonstrates addressing
 ;
 
+[org 0x7c00]
+
 mov ah, 0x0e
 
 ; ; First attempt
@@ -14,13 +16,13 @@ mov ah, 0x0e
 
 ; Attempt 3 AKA THE ONE THAT WORKS
 mov bx, the_secret
-add bx, 0x7c00
+;add bx, 0x7c00
 mov al, [bx]
 int 0x10
 
 ; ; Attempt 4
-; mov al, [0x7c1e]
-; int 0x10
+ ;mov al, [0x7c1e]
+ int 0x10
 
 ; Infinite hang
 jmp $
