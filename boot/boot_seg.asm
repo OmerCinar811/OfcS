@@ -1,16 +1,16 @@
 mov ah, 0x0e
 
 mov al, [the_secret]
-int 0x10
+int 0x10 ; we alread saw this doesn't work, right?
 
-mov bx, 0x7c0
+mov bx, 0x7c0 ; remember, the segment is automatically <<4 for you
 mov ds, bx
-
-mov al, [the_secret]
+; WARNING: from now on all memory references will be offset by 'ds' implicitly
+mov al, [the_secret] 
 int 0x10
 
 mov al, [es:the_secret]
-int 0x10
+int 0x10 ; doesn't look right... isn't 'es' currently 0x000
 
 mov bx, 0x7c0
 mov es, bx
